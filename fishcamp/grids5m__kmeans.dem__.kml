@@ -1,0 +1,31 @@
+<kml xmlns:xsd="http://schemas.opengis.net/kml/2.2.0/ogckml22.xsd" xmlns:xmlns="http://www.opengis.net/kml/2.2/" version="1.0">
+  <Document>
+    <name>grids5m__kmeans.dem__</name>
+    <open>1</open>
+    <Folder>
+      <name>SpatialGridDataFrame</name>
+      <GroundOverlay>
+        <name>colour</name>
+        <altitude>0</altitude>
+        <altitudeMode>clampToGround</altitudeMode>
+        <Icon>
+          <href>kmeans.dem.png</href>
+        </Icon>
+        <LatLonBox>
+          <north>37.4685499211747</north>
+          <south>37.4585149211747</south>
+          <east>-119.600208048781</east>
+          <west>-119.623655548781</west>
+        </LatLonBox>
+      </GroundOverlay>
+    </Folder>
+    <ScreenOverlay>
+      <name>Legend</name>
+      <Icon>
+        <href>kmeans_legend.png</href>
+      </Icon>
+      <overlayXY x="0" y="1" xunits="fraction" yunits="fraction"/>
+      <screenXY x="0" y="1" xunits="fraction" yunits="fraction"/>
+    </ScreenOverlay>
+  </Document>
+</kml>
