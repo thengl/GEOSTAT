@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SAGA_METADATA>
+  <HISTORY saga-version="2.1.4">
+    <MODULE library="ta_lighting" id="2" name="Potential Incoming Solar Radiation">
+      <OPTION type="grid_system" id="PARAMETERS_GRID_SYSTEM" name="Grid system">
+        <CELLSIZE>5</CELLSIZE>
+        <XMIN>268001.5</XMIN>
+        <XMAX>269996.5</XMAX>
+        <YMIN>4149001.5</YMIN>
+        <YMAX>4149996.5</YMAX>
+      </OPTION>
+      <OPTION type="double" id="SOLARCONST" name="Solar Constant [W / m²]">1367.000000</OPTION>
+      <OPTION type="boolean" id="LOCALSVF" name="Local Sky View Factor">TRUE</OPTION>
+      <OPTION type="choice" id="UNITS" name="Units" index="0">kWh / m²</OPTION>
+      <OPTION type="choice" id="SHADOW" name="Shadow" index="1">fat</OPTION>
+      <OPTION type="degree" id="LATITUDE" name="Latitude">+037°27'48.733816''</OPTION>
+      <PARAMETERS name="Planetary Bending" id="BENDING" type="parameters">
+        <OPTION type="boolean" id="BENDING" name="Include Planetery Bending" parms="BENDING">FALSE</OPTION>
+        <OPTION type="double" id="RADIUS" name="Planetary Radius" parms="BENDING">6366737.960000</OPTION>
+        <OPTION type="choice" id="LAT_OFFSET" name="Latitude relates to grid's..." parms="BENDING" index="3">user defined reference</OPTION>
+        <OPTION type="double" id="LAT_REF_USER" name="Latitude (user defined reference)" parms="BENDING">0.000000</OPTION>
+        <OPTION type="choice" id="LON_OFFSET" name="Local time relates to grid's..." parms="BENDING" index="1">center</OPTION>
+        <OPTION type="double" id="LON_REF_USER" name="Local Time (user defined reference)" parms="BENDING">0.000000</OPTION>
+      </PARAMETERS>
+      <OPTION type="choice" id="PERIOD" name="Time Period" index="2">range of days</OPTION>
+      <OPTION type="range" id="HOUR_RANGE" name="Time Span [h]">0.000000; 24.000000</OPTION>
+      <OPTION type="double" id="DHOUR" name="Time Resolution [h]: Day">2.000000</OPTION>
+      <OPTION type="integer" id="DDAYS" name="Time Resolution [d]: Range of Days">5</OPTION>
+      <OPTION type="choice" id="UPDATE" name="Update" index="0">do not update</OPTION>
+      <OPTION type="choice" id="DAY_A" name="Day of Month" index="20">21</OPTION>
+      <OPTION type="choice" id="MON_A" name="Month" index="2">March</OPTION>
+      <OPTION type="choice" id="DAY_B" name="Day of Month" index="20">21</OPTION>
+      <OPTION type="choice" id="MON_B" name="Month" index="3">April</OPTION>
+      <OPTION type="choice" id="METHOD" name="Atmospheric Effects" index="0">Height of Atmosphere and Vapour Pressure</OPTION>
+      <OPTION type="double" id="ATMOSPHERE" name="Height of Atmosphere [m]">12000.000000</OPTION>
+      <OPTION type="double" id="VAPOUR" name="Water Vapour Pressure [mbar]">10.000000</OPTION>
+      <INPUT type="grid" id="GRD_DEM" name="Elevation" system="PARAMETERS_GRID_SYSTEM">
+        <MODULE library="grid_tools" id="25" name="Close Gaps with Spline">
+          <OPTION type="grid_system" id="PARAMETERS_GRID_SYSTEM" name="Grid system">
+            <CELLSIZE>5</CELLSIZE>
+            <XMIN>268001.5</XMIN>
+            <XMAX>269996.5</XMAX>
+            <YMIN>4149001.5</YMIN>
+            <YMAX>4149996.5</YMAX>
+          </OPTION>
+          <OPTION type="integer" id="MAXGAPCELLS" name="Only Process Gaps with Less Cells">0</OPTION>
+          <OPTION type="integer" id="MAXPOINTS" name="Maximum Points">1000</OPTION>
+          <OPTION type="integer" id="LOCALPOINTS" name="Number of Points for Local Interpolation">20</OPTION>
+          <OPTION type="boolean" id="EXTENDED" name="Extended Neighourhood">FALSE</OPTION>
+          <OPTION type="choice" id="NEIGHBOURS" name="Neighbourhood" index="0">Neumann</OPTION>
+          <OPTION type="integer" id="RADIUS" name="Radius (Cells)">0</OPTION>
+          <OPTION type="double" id="RELAXATION" name="Relaxation">0.000000</OPTION>
+          <INPUT type="grid" id="GRID" name="Grid" system="PARAMETERS_GRID_SYSTEM">
+            <FILE>DEM5LIDARf.sgrd</FILE>
+          </INPUT>
+          <OUTPUT type="grid" id="CLOSED" name="Closed Gaps Grid">DEM5LIDARf [no gaps]</OUTPUT>
+        </MODULE>
+      </INPUT>
+      <OUTPUT type="grid" id="GRD_TOTAL" name="Total Insolation">Total Insolation</OUTPUT>
+    </MODULE>
+  </HISTORY>
+  <SOURCE>
+    <FILE>INS.sgrd</FILE>
+    <DATABASE></DATABASE>
+    <PROJECTION>
+      <OGC_WKT>PROJCS["NAD_1983_UTM_Zone_11N",GEOGCS["GCS_North_American_1983",DATUM["D_North_American_1983",SPHEROID["GRS_1980",6378137,298.257222101]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Transverse_Mercator"],PARAMETER["latitude_of_origin",0],PARAMETER["central_meridian",-117],PARAMETER["scale_factor",0.9996],PARAMETER["false_easting",500000],PARAMETER["false_northing",0],UNIT["Meter",1]]
+</OGC_WKT>
+      <PROJ4>+proj=tmerc +a=6378137.000000 +b=6356752.314140 +lat_0=0 +lon_0=-117 +k_0=0.9996 +x_0=500000 +y_0=0 +no_defs</PROJ4>
+      <EPSG>-1</EPSG>
+    </PROJECTION>
+  </SOURCE>
+  <DESCRIPTION></DESCRIPTION>
+</SAGA_METADATA>

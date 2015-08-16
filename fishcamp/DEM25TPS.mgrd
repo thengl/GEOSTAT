@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SAGA_METADATA>
+  <HISTORY saga-version="2.1.4">
+    <MODULE library="grid_spline" id="1" name="Thin Plate Spline (Local)">
+      <OPTION type="table_field" id="FIELD" name="Attribute">VALUE</OPTION>
+      <OPTION type="double" id="REGULARISATION" name="Regularisation">0.000100</OPTION>
+      <OPTION type="choice" id="SEARCH_RANGE" name="Search Range" index="0">local</OPTION>
+      <OPTION type="double" id="SEARCH_RADIUS" name="Maximum Search Distance">1000.000000</OPTION>
+      <OPTION type="choice" id="SEARCH_POINTS_ALL" name="Number of Points" index="0">maximum number of nearest points</OPTION>
+      <OPTION type="integer" id="SEARCH_POINTS_MAX" name="Maximum Number of Points">10</OPTION>
+      <OPTION type="choice" id="SEARCH_DIRECTION" name="Search Direction" index="0">all directions</OPTION>
+      <INPUT type="shapes" id="SHAPES" name="Points">
+        <FILE>contours.shp</FILE>
+      </INPUT>
+      <OPTION type="choice" id="DEFINITION" name="Target Grid System" parms="TARGET" index="0">user defined</OPTION>
+      <OPTION type="double" id="USER_XMIN" name="Left" parms="TARGET">268012.500000</OPTION>
+      <OPTION type="double" id="USER_XMAX" name="Right" parms="TARGET">269987.500000</OPTION>
+      <OPTION type="double" id="USER_YMIN" name="Bottom" parms="TARGET">4149012.500000</OPTION>
+      <OPTION type="double" id="USER_YMAX" name="Top" parms="TARGET">4149987.500000</OPTION>
+      <OPTION type="double" id="USER_SIZE" name="Cellsize" parms="TARGET">25.000000</OPTION>
+      <OPTION type="choice" id="USER_FITS" name="Fit" parms="TARGET" index="0">nodes</OPTION>
+      <OPTION type="grid_system" id="SYSTEM" name="Grid System" parms="TARGET">
+        <CELLSIZE>-1</CELLSIZE>
+        <XMIN>0</XMIN>
+        <XMAX>0</XMAX>
+        <YMIN>0</YMIN>
+        <YMAX>0</YMAX>
+      </OPTION>
+      <OUTPUT type="grid" id="OUT_GRID" name="Target Grid">contours.VALUE [Thin Plate Spline (Local)]</OUTPUT>
+    </MODULE>
+  </HISTORY>
+  <SOURCE>
+    <FILE>DEM25TPS.sgrd</FILE>
+    <DATABASE></DATABASE>
+    <PROJECTION>
+      <OGC_WKT>PROJCS["North_American_1983_UTM_Zone_11N",GEOGCS["GCS_North_American_1983",DATUM["D_North_American_1983",SPHEROID["GRS_1980",6378137,298.257222101]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Transverse_Mercator"],PARAMETER["False_Easting",500000],PARAMETER["False_Northing",0],PARAMETER["Central_Meridian",-117],PARAMETER["Latitude_Of_Origin",0],PARAMETER["Scale_Factor",0.9996],UNIT["Meter",1]]
+</OGC_WKT>
+      <PROJ4>+proj=tmerc +a=6378137.000000 +b=6356752.314140 +x_0=500000 +y_0=0 +lon_0=-117 +lat_0=0 +k_0=0.9996 +no_defs</PROJ4>
+      <EPSG>-1</EPSG>
+    </PROJECTION>
+  </SOURCE>
+  <DESCRIPTION></DESCRIPTION>
+</SAGA_METADATA>

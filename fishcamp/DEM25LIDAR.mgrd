@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SAGA_METADATA>
+  <HISTORY saga-version="2.1.4">
+    <MODULE library="grid_tools" id="0" name="Resampling">
+      <OPTION type="grid_system" id="PARAMETERS_GRID_SYSTEM" name="Grid system">
+        <CELLSIZE>5</CELLSIZE>
+        <XMIN>268001.5</XMIN>
+        <XMAX>269996.5</XMAX>
+        <YMIN>4149001.5</YMIN>
+        <YMAX>4149996.5</YMAX>
+      </OPTION>
+      <OPTION type="boolean" id="KEEP_TYPE" name="Preserve Data Type">FALSE</OPTION>
+      <INPUT type="grid" id="INPUT" name="Grid" system="PARAMETERS_GRID_SYSTEM">
+        <MODULE library="grid_tools" id="25" name="Close Gaps with Spline">
+          <OPTION type="grid_system" id="PARAMETERS_GRID_SYSTEM" name="Grid system">
+            <CELLSIZE>5</CELLSIZE>
+            <XMIN>268001.5</XMIN>
+            <XMAX>269996.5</XMAX>
+            <YMIN>4149001.5</YMIN>
+            <YMAX>4149996.5</YMAX>
+          </OPTION>
+          <OPTION type="integer" id="MAXGAPCELLS" name="Only Process Gaps with Less Cells">0</OPTION>
+          <OPTION type="integer" id="MAXPOINTS" name="Maximum Points">1000</OPTION>
+          <OPTION type="integer" id="LOCALPOINTS" name="Number of Points for Local Interpolation">20</OPTION>
+          <OPTION type="boolean" id="EXTENDED" name="Extended Neighourhood">FALSE</OPTION>
+          <OPTION type="choice" id="NEIGHBOURS" name="Neighbourhood" index="0">Neumann</OPTION>
+          <OPTION type="integer" id="RADIUS" name="Radius (Cells)">0</OPTION>
+          <OPTION type="double" id="RELAXATION" name="Relaxation">0.000000</OPTION>
+          <INPUT type="grid" id="GRID" name="Grid" system="PARAMETERS_GRID_SYSTEM">
+            <FILE>DEM5LIDARf.sgrd</FILE>
+          </INPUT>
+          <OUTPUT type="grid" id="CLOSED" name="Closed Gaps Grid">DEM5LIDARf [no gaps]</OUTPUT>
+        </MODULE>
+      </INPUT>
+      <OPTION type="choice" id="DEFINITION" name="Target Grid System" parms="TARGET" index="0">user defined</OPTION>
+      <OPTION type="double" id="USER_XMIN" name="Left" parms="TARGET">268012.500000</OPTION>
+      <OPTION type="double" id="USER_XMAX" name="Right" parms="TARGET">269987.500000</OPTION>
+      <OPTION type="double" id="USER_YMIN" name="Bottom" parms="TARGET">4149012.500000</OPTION>
+      <OPTION type="double" id="USER_YMAX" name="Top" parms="TARGET">4149987.500000</OPTION>
+      <OPTION type="double" id="USER_SIZE" name="Cellsize" parms="TARGET">25.000000</OPTION>
+      <OPTION type="choice" id="USER_FITS" name="Fit" parms="TARGET" index="0">nodes</OPTION>
+      <OPTION type="choice" id="METHOD" name="Interpolation Method" parms="SCALE_UP" index="6">Mean Value (cell area weighted)</OPTION>
+      <OUTPUT type="grid" id="OUT_GRID" name="Target Grid">DEM5LIDARf2</OUTPUT>
+    </MODULE>
+  </HISTORY>
+  <SOURCE>
+    <FILE>DEM25LIDAR.sgrd</FILE>
+    <DATABASE></DATABASE>
+    <PROJECTION>
+      <OGC_WKT>PROJCS["NAD_1983_UTM_Zone_11N",GEOGCS["GCS_North_American_1983",DATUM["D_North_American_1983",SPHEROID["GRS_1980",6378137,298.257222101]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Transverse_Mercator"],PARAMETER["latitude_of_origin",0],PARAMETER["central_meridian",-117],PARAMETER["scale_factor",0.9996],PARAMETER["false_easting",500000],PARAMETER["false_northing",0],UNIT["Meter",1]]
+</OGC_WKT>
+      <PROJ4>+proj=tmerc +a=6378137.000000 +b=6356752.314140 +lat_0=0 +lon_0=-117 +k_0=0.9996 +x_0=500000 +y_0=0 +no_defs</PROJ4>
+      <EPSG>-1</EPSG>
+    </PROJECTION>
+  </SOURCE>
+  <DESCRIPTION></DESCRIPTION>
+</SAGA_METADATA>

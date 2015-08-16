@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SAGA_METADATA>
+  <HISTORY saga-version="2.1.4">
+    <MODULE library="grid_tools" id="10" name="Grid Proximity Buffer">
+      <OPTION type="grid_system" id="PARAMETERS_GRID_SYSTEM" name="Grid system">
+        <CELLSIZE>5</CELLSIZE>
+        <XMIN>268001.5</XMIN>
+        <XMAX>269996.5</XMAX>
+        <YMIN>4149001.5</YMIN>
+        <YMAX>4149996.5</YMAX>
+      </OPTION>
+      <OPTION type="double" id="DIST" name="Buffer distance">471.404521</OPTION>
+      <OPTION type="integer" id="IVAL" name="Equidistance">5</OPTION>
+      <INPUT type="grid" id="SOURCE" name="Source Grid" system="PARAMETERS_GRID_SYSTEM">
+        <MODULE library="grid_gridding" id="0" name="Shapes to Grid">
+          <OPTION type="table_field" id="FIELD" name="Attribute">soilmu</OPTION>
+          <OPTION type="choice" id="OUTPUT" name="Output Values" index="2">attribute</OPTION>
+          <OPTION type="choice" id="MULTIPLE" name="Method for Multiple Values" index="1">last</OPTION>
+          <OPTION type="choice" id="LINE_TYPE" name="Lines" index="0">thin</OPTION>
+          <OPTION type="choice" id="GRID_TYPE" name="Preferred Target Grid Type" index="3">Floating Point (4 byte)</OPTION>
+          <INPUT type="shapes" id="INPUT" name="Shapes">
+            <MODULE library="shapes_lines" id="0" name="Convert Polygons to Lines">
+              <INPUT type="shapes" id="POLYGONS" name="Polygons">
+                <MODULE library="shapes_grid" id="6" name="Vectorising Grid Classes">
+                  <OPTION type="grid_system" id="PARAMETERS_GRID_SYSTEM" name="Grid system">
+                    <CELLSIZE>5</CELLSIZE>
+                    <XMIN>268001.5</XMIN>
+                    <XMAX>269996.5</XMAX>
+                    <YMIN>4149001.5</YMIN>
+                    <YMAX>4149996.5</YMAX>
+                  </OPTION>
+                  <OPTION type="choice" id="CLASS_ALL" name="Class Selection" index="1">all classes</OPTION>
+                  <OPTION type="double" id="CLASS_ID" name="Class Identifier">1.000000</OPTION>
+                  <OPTION type="choice" id="SPLIT" name="Vectorised class as..." index="0">one single (multi-)polygon object</OPTION>
+                  <OPTION type="boolean" id="ALLVERTICES" name="Keep Vertices on Straight Lines">FALSE</OPTION>
+                  <INPUT type="grid" id="GRID" name="Grid" system="PARAMETERS_GRID_SYSTEM">
+                    <MODULE library="io_grid" id="1" name="Import ESRI Arc/Info Grid">
+                      <OPTION type="file" id="FILE" name="File">D:/git/GEOSTAT/fishcamp/soilmu.asc</OPTION>
+                      <OPTION type="choice" id="GRID_TYPE" name="Target Grid Type" index="2">Floating Point (4 byte)</OPTION>
+                      <OPTION type="choice" id="NODATA" name="NoData Value" index="0">Input File's NoData Value</OPTION>
+                      <OPTION type="double" id="NODATA_VAL" name="User Defined NoData Value">-99999.000000</OPTION>
+                      <OUTPUT type="data_object" id="GRID" name="Grid">soilmu</OUTPUT>
+                    </MODULE>
+                  </INPUT>
+                  <OUTPUT type="shapes" id="POLYGONS" name="Polygons">soilmu</OUTPUT>
+                </MODULE>
+              </INPUT>
+              <OUTPUT type="shapes" id="LINES" name="Lines">soilmu</OUTPUT>
+            </MODULE>
+          </INPUT>
+          <OPTION type="choice" id="DEFINITION" name="Target Grid System" parms="TARGET" index="0">user defined</OPTION>
+          <OPTION type="double" id="USER_XMIN" name="Left" parms="TARGET">268001.500000</OPTION>
+          <OPTION type="double" id="USER_XMAX" name="Right" parms="TARGET">269996.500000</OPTION>
+          <OPTION type="double" id="USER_YMIN" name="Bottom" parms="TARGET">4149001.500000</OPTION>
+          <OPTION type="double" id="USER_YMAX" name="Top" parms="TARGET">4149996.500000</OPTION>
+          <OPTION type="double" id="USER_SIZE" name="Cellsize" parms="TARGET">5.000000</OPTION>
+          <OPTION type="choice" id="USER_FITS" name="Fit" parms="TARGET" index="0">nodes</OPTION>
+          <OUTPUT type="grid" id="OUT_GRID" name="Target Grid">soilmu_l [soilmu]</OUTPUT>
+        </MODULE>
+      </INPUT>
+      <OUTPUT type="grid" id="BUFFER" name="Buffer Grid">Buffer Grid</OUTPUT>
+    </MODULE>
+  </HISTORY>
+  <SOURCE>
+    <FILE>tmp.sgrd</FILE>
+    <DATABASE></DATABASE>
+    <PROJECTION></PROJECTION>
+  </SOURCE>
+  <DESCRIPTION></DESCRIPTION>
+</SAGA_METADATA>

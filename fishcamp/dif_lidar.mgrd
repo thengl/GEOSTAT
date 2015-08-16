@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SAGA_METADATA>
+  <HISTORY saga-version="2.1.4">
+    <MODULE library="statistics_grid" id="1" name="Residual Analysis (Grid)">
+      <OPTION type="grid_system" id="PARAMETERS_GRID_SYSTEM" name="Grid system">
+        <CELLSIZE>5</CELLSIZE>
+        <XMIN>268001.5</XMIN>
+        <XMAX>269996.5</XMAX>
+        <YMIN>4149001.5</YMIN>
+        <YMAX>4149996.5</YMAX>
+      </OPTION>
+      <OPTION type="integer" id="RADIUS" name="Radius (Cells)">5</OPTION>
+      <OPTION type="boolean" id="BCENTER" name="Include Center Cell">TRUE</OPTION>
+      <PARAMETERS name="Distance Weighting" id="WEIGHTING" type="parameters">
+        <OPTION type="choice" id="DW_WEIGHTING" name="Weighting Function" parms="DISTANCE_WEIGHTING" index="0">no distance weighting</OPTION>
+        <OPTION type="double" id="DW_IDW_POWER" name="Inverse Distance Weighting Power" parms="DISTANCE_WEIGHTING">1.000000</OPTION>
+        <OPTION type="boolean" id="DW_IDW_OFFSET" name="Inverse Distance Offset" parms="DISTANCE_WEIGHTING">TRUE</OPTION>
+        <OPTION type="double" id="DW_BANDWIDTH" name="Gaussian and Exponential Weighting Bandwidth" parms="DISTANCE_WEIGHTING">1.000000</OPTION>
+      </PARAMETERS>
+      <INPUT type="grid" id="GRID" name="Grid" system="PARAMETERS_GRID_SYSTEM">
+        <MODULE library="grid_gridding" id="0" name="Shapes to Grid">
+          <OPTION type="table_field" id="FIELD" name="Attribute">Z</OPTION>
+          <OPTION type="choice" id="OUTPUT" name="Output Values" index="2">attribute</OPTION>
+          <OPTION type="choice" id="MULTIPLE" name="Method for Multiple Values" index="1">last</OPTION>
+          <OPTION type="choice" id="GRID_TYPE" name="Preferred Target Grid Type" index="3">Floating Point (4 byte)</OPTION>
+          <INPUT type="shapes" id="INPUT" name="Shapes">
+            <FILE>lidar.shp</FILE>
+          </INPUT>
+          <OPTION type="choice" id="DEFINITION" name="Target Grid System" parms="TARGET" index="0">user defined</OPTION>
+          <OPTION type="double" id="USER_XMIN" name="Left" parms="TARGET">268001.500000</OPTION>
+          <OPTION type="double" id="USER_XMAX" name="Right" parms="TARGET">269996.500000</OPTION>
+          <OPTION type="double" id="USER_YMIN" name="Bottom" parms="TARGET">4149001.500000</OPTION>
+          <OPTION type="double" id="USER_YMAX" name="Top" parms="TARGET">4149996.500000</OPTION>
+          <OPTION type="double" id="USER_SIZE" name="Cellsize" parms="TARGET">5.000000</OPTION>
+          <OPTION type="choice" id="USER_FITS" name="Fit" parms="TARGET" index="0">nodes</OPTION>
+          <OUTPUT type="grid" id="OUT_GRID" name="Target Grid">lidar [Z]</OUTPUT>
+        </MODULE>
+      </INPUT>
+      <OUTPUT type="grid" id="DIFF" name="Difference from Mean Value">Difference from Mean Value</OUTPUT>
+    </MODULE>
+  </HISTORY>
+  <SOURCE>
+    <FILE>dif_lidar.sgrd</FILE>
+    <DATABASE></DATABASE>
+    <PROJECTION>
+      <OGC_WKT>PROJCS["North_American_1983_UTM_Zone_11N",GEOGCS["GCS_North_American_1983",DATUM["D_North_American_1983",SPHEROID["GRS_1980",6378137,298.257222101]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Transverse_Mercator"],PARAMETER["False_Easting",500000],PARAMETER["False_Northing",0],PARAMETER["Central_Meridian",-117],PARAMETER["Latitude_Of_Origin",0],PARAMETER["Scale_Factor",0.9996],UNIT["Meter",1]]
+</OGC_WKT>
+      <PROJ4>+proj=tmerc +a=6378137.000000 +b=6356752.314140 +x_0=500000 +y_0=0 +lon_0=-117 +lat_0=0 +k_0=0.9996 +no_defs</PROJ4>
+      <EPSG>-1</EPSG>
+    </PROJECTION>
+  </SOURCE>
+  <DESCRIPTION></DESCRIPTION>
+</SAGA_METADATA>

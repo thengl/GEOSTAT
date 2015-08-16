@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SAGA_METADATA>
+  <HISTORY saga-version="2.1.4">
+    <MODULE library="io_grid" id="1" name="Import ESRI Arc/Info Grid">
+      <OPTION type="file" id="FILE" name="File">D:/git/GEOSTAT/fishcamp/soilmu.asc</OPTION>
+      <OPTION type="choice" id="GRID_TYPE" name="Target Grid Type" index="2">Floating Point (4 byte)</OPTION>
+      <OPTION type="choice" id="NODATA" name="NoData Value" index="0">Input File's NoData Value</OPTION>
+      <OPTION type="double" id="NODATA_VAL" name="User Defined NoData Value">-99999.000000</OPTION>
+      <OUTPUT type="data_object" id="GRID" name="Grid">soilmu</OUTPUT>
+    </MODULE>
+  </HISTORY>
+  <SOURCE>
+    <FILE>soilmu.sgrd</FILE>
+    <DATABASE></DATABASE>
+    <PROJECTION></PROJECTION>
+  </SOURCE>
+  <DESCRIPTION></DESCRIPTION>
+</SAGA_METADATA>

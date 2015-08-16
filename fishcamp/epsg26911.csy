@@ -1,0 +1,18 @@
+[CoordSystem]
+Datum=North American 1983 (NAD 83)
+Ellipsoid=User Defined
+Projection=UTM
+Type=Projection
+Width=28
+
+[Ellipsoid]
+1/f=298.257222
+a=6378137.000000
+
+[Ilwis]
+Type=CoordSystem
+
+[Projection]
+Northern Hemisphere=Yes
+Zone=11
+

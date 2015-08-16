@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SAGA_METADATA>
+  <HISTORY saga-version="2.1.4">
+    <MODULE library="grid_gridding" id="0" name="Shapes to Grid">
+      <OPTION type="table_field" id="FIELD" name="Attribute">Z</OPTION>
+      <OPTION type="choice" id="OUTPUT" name="Output Values" index="2">attribute</OPTION>
+      <OPTION type="choice" id="MULTIPLE" name="Method for Multiple Values" index="1">last</OPTION>
+      <OPTION type="choice" id="GRID_TYPE" name="Preferred Target Grid Type" index="3">Floating Point (4 byte)</OPTION>
+      <INPUT type="shapes" id="INPUT" name="Shapes">
+        <FILE>lidar.shp</FILE>
+      </INPUT>
+      <OPTION type="choice" id="DEFINITION" name="Target Grid System" parms="TARGET" index="0">user defined</OPTION>
+      <OPTION type="double" id="USER_XMIN" name="Left" parms="TARGET">268001.500000</OPTION>
+      <OPTION type="double" id="USER_XMAX" name="Right" parms="TARGET">269996.500000</OPTION>
+      <OPTION type="double" id="USER_YMIN" name="Bottom" parms="TARGET">4149001.500000</OPTION>
+      <OPTION type="double" id="USER_YMAX" name="Top" parms="TARGET">4149996.500000</OPTION>
+      <OPTION type="double" id="USER_SIZE" name="Cellsize" parms="TARGET">5.000000</OPTION>
+      <OPTION type="choice" id="USER_FITS" name="Fit" parms="TARGET" index="0">nodes</OPTION>
+      <OUTPUT type="grid" id="OUT_GRID" name="Target Grid">lidar [Z]</OUTPUT>
+    </MODULE>
+  </HISTORY>
+  <SOURCE>
+    <FILE>DEM5LIDAR.sgrd</FILE>
+    <DATABASE></DATABASE>
+    <PROJECTION>
+      <OGC_WKT>PROJCS["North_American_1983_UTM_Zone_11N",GEOGCS["GCS_North_American_1983",DATUM["D_North_American_1983",SPHEROID["GRS_1980",6378137,298.257222101]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Transverse_Mercator"],PARAMETER["False_Easting",500000],PARAMETER["False_Northing",0],PARAMETER["Central_Meridian",-117],PARAMETER["Latitude_Of_Origin",0],PARAMETER["Scale_Factor",0.9996],UNIT["Meter",1]]
+</OGC_WKT>
+      <PROJ4>+proj=tmerc +a=6378137.000000 +b=6356752.314140 +x_0=500000 +y_0=0 +lon_0=-117 +lat_0=0 +k_0=0.9996 +no_defs</PROJ4>
+      <EPSG>-1</EPSG>
+    </PROJECTION>
+  </SOURCE>
+  <DESCRIPTION></DESCRIPTION>
+</SAGA_METADATA>
